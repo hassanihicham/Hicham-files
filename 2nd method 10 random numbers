@@ -1,0 +1,18 @@
+#!/bin/bash
+# Hi dears; this script will return 10 numbers from 1 - 10
+# Loop=10 the number of values that I will show   
+# range=10 (range from 1 to 10)
+# compare each new number with the previous numbers then show,
+# continue doing this until we get 10 values
+awk -v loop=10 -v range=10 'BEGIN{    
+srand()
+  do {
+    numb = 1 + int(rand() * range)
+    if (!(numb in prev)) {         
+       print numb
+       prev[numb] = 1
+       count++
+    } 
+  } while (count<loop) 
+}'
+exit 0
